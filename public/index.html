@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuraBot Core — Asistentes de IA para WhatsApp Business | Multi-Tenant & Google Calendar</title>
+  <meta name="description" content="Plataforma empresarial de agentes de Inteligencia Artificial para WhatsApp. Atención 24/7, agendamiento de turnos conectado a Google Calendar y calificación de leads sin menús numéricos rígidos.">
+  <meta name="keywords" content="whatsapp bot ia, chatbot inteligencia artificial whatsapp, turnos google calendar whatsapp, multi-tenant whatsapp api, meta cloud api">
+  <meta property="og:title" content="AuraBot Core — Asistentes de IA para WhatsApp Business">
+  <meta property="og:description" content="Automatizá tus ventas, turnos y atención al cliente en WhatsApp con IA en lenguaje natural y sincronización en tiempo real.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Grid Texture -->
+  <div class="bg-grid-overlay"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span class="badge-status"><span class="pulse-dot"></span> Meta Cloud API v19.0 Oficial</span>
+      <span class="announcement-text">Arquitectura Multi-Tenant con sincronización bi-direccional a Google Calendar</span>
+      <a href="#simulador" class="announcement-link">Probar simulador en vivo &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-mark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+        </div>
+        <span class="brand-name">AuraBot <span class="brand-accent">Core</span></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#capacidades">Capacidades</a>
+        <a href="#simulador">Simulador en Vivo</a>
+        <a href="#comparativa">Por qué IA</a>
+        <a href="#calculadora">Calculadora ROI</a>
+        <a href="#planes">Planes</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-secondary" onclick="openContactModal('demo')">Solicitar Demo</button>
+        <a href="#simulador" class="btn btn-primary">Probar en Vivo</a>
+      </div>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="tag-icon">⚡</span>
+          <span>Atención y Ventas Automatizadas 24/7</span>
+        </div>
+
+        <h1 class="hero-title">
+          Tu empresa atendiendo en WhatsApp en <span class="highlight-text">menos de 3 segundos</span>.
+        </h1>
+
+        <p class="hero-subtitle">
+          Dejá atrás los aburridos menús numéricos de <em>"marque 1 o 2"</em>. Nuestros agentes de IA entienden el contexto, agendan turnos directamente en Google Calendar y califican clientes potenciales con lenguaje natural y fluido.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#simulador" class="btn btn-primary btn-large">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Interactuar con el Simulador
+          </a>
+          <button class="btn btn-outline btn-large" onclick="openContactModal('presupuesto')">
+            Hablar con un Especialista
+          </button>
+        </div>
+
+        <!-- Metric Badges -->
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <span class="metric-value">&lt; 1.8s</span>
+            <span class="metric-label">Tiempo promedio de respuesta</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-value">100%</span>
+            <span class="metric-label">API Oficial de Meta (Sin riesgo)</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-value">0 solapamientos</span>
+            <span class="metric-label">Sincronización en tiempo real</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Interactive WhatsApp Phone Mockup -->
+      <div class="hero-preview" id="simulador">
+        <div class="phone-wrapper">
+          
+          <!-- Industry Tab Switcher -->
+          <div class="simulator-controls">
+            <span class="controls-label">Seleccionar rubro demo:</span>
+            <div class="industry-pills" id="industryPills">
+              <button class="pill-btn active" data-industry="inmobiliaria">🏢 Inmobiliaria</button>
+              <button class="pill-btn" data-industry="salud">🦷 Consultorio / Turnos</button>
+              <button class="pill-btn" data-industry="barberia">💈 Barbería / Estética</button>
+              <button class="pill-btn" data-industry="ecommerce">👟 E-Commerce</button>
+            </div>
+          </div>
+
+          <!-- Phone Device Frame -->
+          <div class="smartphone-frame">
+            <div class="phone-speaker"></div>
+            
+            <!-- WhatsApp Header -->
+            <div class="wa-header">
+              <div class="wa-avatar" id="waAvatar">
+                <span id="waAvatarText">BU</span>
+              </div>
+              <div class="wa-contact-info">
+                <div class="wa-name" id="waName">Baires Urbana Propiedades</div>
+                <div class="wa-status"><span class="wa-online-dot"></span> en línea (IA 24/7)</div>
+              </div>
+              <div class="wa-actions-icons">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+              </div>
+            </div>
+
+            <!-- WhatsApp Chat Area -->
+            <div class="wa-chat-body" id="waChatBody">
+              <!-- System Timestamp -->
+              <div class="wa-date-chip">Hoy</div>
+              
+              <!-- Messages will be injected here via app.js -->
+            </div>
+
+            <!-- Typing Indicator Container -->
+            <div class="wa-typing-indicator" id="waTyping" style="display: none;">
+              <span class="typing-name" id="typingName">Escribiendo</span>
+              <div class="typing-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <!-- Suggested Quick Questions -->
+            <div class="wa-quick-replies" id="waQuickReplies">
+              <!-- Injected by app.js -->
+            </div>
+
+            <!-- WhatsApp Input Bar -->
+            <form class="wa-input-bar" id="waInputForm">
+              <input type="text" id="waCustomInput" placeholder="Escribí tu mensaje o consulta..." autocomplete="off">
+              <button type="submit" class="wa-send-btn" aria-label="Enviar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                </svg>
+              </button>
+            </form>
+
+          </div>
+          <div class="simulator-caption">
+            <span>✨ Simulador interactivo en tiempo real. Hacé clic en las preguntas sugeridas o escribí un mensaje propio.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Technical Value & Features Grid (Linear/Stripe Style Bento Grid) -->
+  <section class="section-container" id="capacidades">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-tag">CAPACIDADES DE INGENIERÍA</div>
+        <h2 class="section-title">Construido para empresas que no pueden permitirse perder clientes</h2>
+        <p class="section-subtitle">
+          Una plataforma robusta que combina la potencia del lenguaje natural con la rigurosidad de sistemas transaccionales y bases de datos.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        
+        <!-- Bento Card 1: Google Calendar & PostgreSQL -->
+        <div class="bento-card bento-span-2">
+          <div class="bento-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+          <h3 class="bento-title">Sincronización Bi-Direccional con Google Calendar y BD</h3>
+          <p class="bento-desc">
+            El asistente consulta disponibilidad real de slots libres en milisegundos y confirma turnos directamente en la agenda del profesional. Si tú o tu equipo agregan un evento manual en Google Calendar, el bot lo bloquea de inmediato.
+          </p>
+          <div class="code-preview">
+            <div class="code-header">
+              <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+              <span class="code-filename">google_calendar_tool.ts</span>
+            </div>
+            <pre><code><span class="kw">await</span> calendar.events.<span class="fn">insert</span>({
+  calendarId: tenant.config.google_calendar_id,
+  summary: <span class="str">"Turno Confirmado: Lucas García (Limpieza Dental)"</span>,
+  start: { dateTime: <span class="str">"2026-09-22T15:00:00-03:00"</span> }
+});</code></pre>
+          </div>
+        </div>
+
+        <!-- Bento Card 2: Meta Cloud API -->
+        <div class="bento-card">
+          <div class="bento-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3 class="bento-title">Meta Cloud API Oficial</h3>
+          <p class="bento-desc">
+            Conexión directa sobre la infraestructura oficial de Meta Graph API v19.0. <strong>Cero riesgo de baneos</strong> o números bloqueados por usar emuladores no autorizados.
+          </p>
+          <div class="bento-badge-tag">100% Verificado & Oficial</div>
+        </div>
+
+        <!-- Bento Card 3: Multi-Tenant Architecture -->
+        <div class="bento-card">
+          <div class="bento-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+          </div>
+          <h3 class="bento-title">Arquitectura Multi-Tenant Aislada</h3>
+          <p class="bento-desc">
+            Una sola instancia centralizada puede gestionar decenas de clientes y números telefónicos con bases de datos, historiales, tokens y configuraciones totalmente aisladas.
+          </p>
+        </div>
+
+        <!-- Bento Card 4: Memoria Conversacional -->
+        <div class="bento-card bento-span-2">
+          <div class="bento-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <h3 class="bento-title">Memoria Contextual Dinámica &amp; Anti-Spam</h3>
+          <p class="bento-desc">
+            El sistema recuerda las preferencias, dudas previas y el hilo de la charla sin necesidad de que el cliente repita lo que ya dijo. Cuenta con limitadores de tokens y rate limiting para proteger tu inversión.
+          </p>
+          <div class="metrics-mini-grid">
+            <div class="mini-stat">
+              <span class="stat-num">10 msgs</span>
+              <span class="stat-desc">Ventana contextual móvil</span>
+            </div>
+            <div class="mini-stat">
+              <span class="stat-num">&lt; 350 tok</span>
+              <span class="stat-desc">Respuesta óptima para WhatsApp</span>
+            </div>
+            <div class="mini-stat">
+              <span class="stat-num">100%</span>
+              <span class="stat-desc">Protección contra Prompt Leaks</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Comparison Section: Old Rule-based Bots vs. AuraBot AI -->
+  <section class="section-container bg-surface-alt" id="comparativa">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-tag">EVOLUCIÓN TECNOLÓGICA</div>
+        <h2 class="section-title">Por qué los chatbots tradicionales de opciones ya no funcionan</h2>
+        <p class="section-subtitle">
+          Los clientes exigen inmediatez y diálogo humano. Obligarlos a navegar menús numéricos rígidos destruye tu tasa de conversión.
+        </p>
+      </div>
+
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width: 30%;">Característica</th>
+              <th class="col-traditional" style="width: 35%;">Chatbot Tradicional (Menú 1, 2, 3)</th>
+              <th class="col-aurabot" style="width: 35%;">AuraBot Core (IA Conversacional)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-name">Experiencia del Cliente</td>
+              <td class="val-negative">Rígida. Obliga al cliente a presionar números ("Marque 1 para turnos").</td>
+              <td class="val-positive">Lenguaje natural. El cliente escribe como habla y la IA comprende de inmediato.</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Tolerancia a Consultas Complejas</td>
+              <td class="val-negative">Nula. Si el usuario escribe algo fuera del menú, el bot se cuelga o repite el menú.</td>
+              <td class="val-positive">Total. Razona contexto, requisitos legales, zonas, precios y excepciones.</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Agendamiento de Turnos</td>
+              <td class="val-negative">Envía un enlace externo (Calendly) donde el 60% de los usuarios abandona.</td>
+              <td class="val-positive">Agenda de punta a punta dentro de WhatsApp y sincroniza en Google Calendar.</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Calificación de Leads</td>
+              <td class="val-negative">Formularios extensos que aburren al prospecto.</td>
+              <td class="val-positive">Preguntas fluidas en diálogo para descubrir presupuesto y urgencia.</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Disponibilidad</td>
+              <td class="val-negative">Frecuentes caídas por desconexión de sesión Web QR.</td>
+              <td class="val-positive">99.9% Uptime garantizado sobre la infraestructura Cloud de Meta.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive ROI Calculator Section -->
+  <section class="section-container" id="calculadora">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-tag">RETORNO DE INVERSIÓN</div>
+        <h2 class="section-title">Calculá cuánto tiempo y dinero podés ahorrar por mes</h2>
+        <p class="section-subtitle">
+          El 40% de las ventas en WhatsApp se pierden por no responder en los primeros 5 minutos.
+        </p>
+      </div>
+
+      <div class="calculator-card">
+        <div class="calculator-inputs">
+          
+          <div class="slider-group">
+            <div class="slider-header">
+              <label for="chatsSlider">Consultas / Mensajes mensuales en WhatsApp:</label>
+              <span class="slider-value-display" id="chatsDisplay">800 consultas</span>
+            </div>
+            <input type="range" id="chatsSlider" min="100" max="5000" step="50" value="800" class="custom-slider">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <label for="ticketSlider">Valor promedio de tu servicio / producto (ARS):</label>
+              <span class="slider-value-display" id="ticketDisplay">$ 35.000</span>
+            </div>
+            <input type="range" id="ticketSlider" min="5000" max="250000" step="5000" value="35000" class="custom-slider">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <label for="hoursPerChat">Minutos promedio que toma atender un cliente manualmente:</label>
+              <span class="slider-value-display" id="minutesDisplay">8 minutos</span>
+            </div>
+            <input type="range" id="hoursPerChat" min="3" max="20" step="1" value="8" class="custom-slider">
+          </div>
+
+        </div>
+
+        <div class="calculator-results">
+          <div class="result-box">
+            <span class="result-title">Horas de trabajo humano recuperadas</span>
+            <div class="result-metric" id="hoursSaved">106 hs / mes</div>
+            <p class="result-sub">Equivalente a más de <strong>13 jornadas laborales completas</strong> para tu equipo.</p>
+          </div>
+
+          <div class="result-box highlighted">
+            <span class="result-title">Estimación de facturación recuperada por respuesta inmediata</span>
+            <div class="result-metric text-accent" id="revenueGain">$ 840.000 / mes</div>
+            <p class="result-sub">Basado en un incremento conservador del 3% en retención y cierre de prospectos fuera de horario.</p>
+          </div>
+
+          <button class="btn btn-primary btn-full" onclick="openContactModal('calculadora')">
+            Comenzar a Automatizar Ahora
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section-container bg-surface-alt" id="planes">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-tag">PLANES Y SERVICIOS</div>
+        <h2 class="section-title">Inversión transparente para escalar tu atención</h2>
+        <p class="section-subtitle">
+          Implementación llave en mano. Nos encargamos de la configuración técnica, prompts y conexión con Meta.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        
+        <!-- Tier 1: Starter -->
+        <div class="pricing-card">
+          <div class="tier-name">Plan Starter</div>
+          <div class="tier-desc">Ideal para profesionales independientes y comercios en crecimiento.</div>
+          <div class="tier-price">
+            <span class="currency">USD</span>
+            <span class="amount">69</span>
+            <span class="period">/ mes</span>
+          </div>
+          <ul class="tier-features">
+            <li><span>✓</span> 1 Línea oficial de WhatsApp (Meta Cloud API)</li>
+            <li><span>✓</span> Hasta 1.500 mensajes procesados / mes</li>
+            <li><span>✓</span> System Prompt personalizado y adaptado al negocio</li>
+            <li><span>✓</span> Soporte para consultas frecuentes y catálogo</li>
+            <li><span>✓</span> Memoria conversacional de 10 mensajes</li>
+            <li><span class="feature-no">✕</span> Sincronización con Google Calendar</li>
+          </ul>
+          <button class="btn btn-secondary btn-full" onclick="openContactModal('Plan Starter')">Elegir Starter</button>
+        </div>
+
+        <!-- Tier 2: Pro Business (Featured) -->
+        <div class="pricing-card featured">
+          <div class="popular-badge">MÁS ELEGIDO</div>
+          <div class="tier-name">Plan Pro Business</div>
+          <div class="tier-desc">Para consultorios, inmobiliarias y empresas con flujo diario de citas y ventas.</div>
+          <div class="tier-price">
+            <span class="currency">USD</span>
+            <span class="amount">149</span>
+            <span class="period">/ mes</span>
+          </div>
+          <ul class="tier-features">
+            <li><span>✓</span> <strong>Sincronización completa con Google Calendar</strong></li>
+            <li><span>✓</span> Agendamiento y cancelación automatizada de turnos</li>
+            <li><span>✓</span> Hasta 5.000 mensajes procesados / mes</li>
+            <li><span>✓</span> Calificación avanzada de leads y clientes</li>
+            <li><span>✓</span> Rate Limiter anti-spam y filtros de seguridad</li>
+            <li><span>✓</span> Soporte prioritario por WhatsApp</li>
+          </ul>
+          <button class="btn btn-primary btn-full" onclick="openContactModal('Plan Pro Business')">Elegir Pro Business</button>
+        </div>
+
+        <!-- Tier 3: Enterprise -->
+        <div class="pricing-card">
+          <div class="tier-name">Plan Enterprise Multi-Tenant</div>
+          <div class="tier-desc">Para agencias, franquicias o empresas con múltiples sucursales y números.</div>
+          <div class="tier-price">
+            <span class="amount">Custom</span>
+          </div>
+          <ul class="tier-features">
+            <li><span>✓</span> Múltiples números de WhatsApp y tenants ilimitados</li>
+            <li><span>✓</span> Integración a medida con bases de datos (PostgreSQL, CRM, ERP)</li>
+            <li><span>✓</span> Búsqueda semántica de documentos (RAG / Embeddings)</li>
+            <li><span>✓</span> Servidor dedicado y SLA del 99.9%</li>
+            <li><span>✓</span> Despliegue en infraestructura propia o cloud gestionada</li>
+          </ul>
+          <button class="btn btn-secondary btn-full" onclick="openContactModal('Plan Enterprise')">Contactar a Ventas</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Section (Accordion) -->
+  <section class="section-container" id="faq">
+    <div class="container faq-container">
+      
+      <div class="section-header">
+        <div class="section-tag">PREGUNTAS FRECUENTES</div>
+        <h2 class="section-title">Todo lo que necesitas saber</h2>
+      </div>
+
+      <div class="faq-accordion">
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Puedo usar mi propio número de WhatsApp actual?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sí. La integración utiliza la WhatsApp Cloud API oficial de Meta. Puedes vincular tanto un número nuevo como tu número comercial existente (este debe estar registrado en Meta for Developers como WhatsApp Business API).</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Existe riesgo de que Meta bloquee mi número?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>No. A diferencia de bots no oficiales o emuladores Web (que violan los términos de Meta y provocan bloqueos permanentes), nuestra plataforma opera 100% sobre la API Oficial de Meta Graph v19.0 garantizando legitimidad y estabilidad.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Cómo se conecta con mi Google Calendar?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Es muy sencillo: compartes tu calendario de Google con el email de nuestra Cuenta de Servicio de Google Cloud (con permiso para editar eventos). La IA lee tus huecos libres y crea los eventos automáticamente con el nombre, teléfono y servicio del cliente.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Qué pasa si un cliente envía un audio o una foto?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>El sistema cuenta con un controlador de fallbacks inteligente que detecta mensajes no soportados y responde cordialmente indicándole al usuario que el canal opera por mensaje de texto, evitando errores o bloqueos en la conversación.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Cuánto tiempo demora la puesta en marcha?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Una vez aprobadas las credenciales de Meta y definido el System Prompt con las reglas de tu negocio, el bot queda completamente operativo en menos de 24 a 48 horas hábiles.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="cta-title">¿Listo para transformar la atención por WhatsApp de tu empresa?</h2>
+        <p class="cta-desc">Dejá que la Inteligencia Artificial califique a tus clientes y llene tu agenda mientras vos te enfocás en hacer crecer tu negocio.</p>
+        <div class="cta-actions">
+          <button class="btn btn-primary btn-large" onclick="openContactModal('CTA Final')">Solicitar Asesoría Gratuita</button>
+          <a href="#simulador" class="btn btn-outline btn-large">Probar Simulador de Nuevo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <div class="logo-mark">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </div>
+          <span class="brand-name">AuraBot <span class="brand-accent">Core</span></span>
+        </div>
+        <p class="footer-tagline">Plataforma Multi-Tenant de Inteligencia Artificial para WhatsApp Business.</p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <div class="footer-heading">Producto</div>
+          <a href="#capacidades">Capacidades</a>
+          <a href="#simulador">Simulador en Vivo</a>
+          <a href="#comparativa">Comparativa</a>
+          <a href="#calculadora">Calculadora ROI</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-heading">Integraciones</div>
+          <a href="#capacidades">Google Calendar</a>
+          <a href="#capacidades">Meta Cloud API</a>
+          <a href="#capacidades">PostgreSQL Database</a>
+          <a href="#capacidades">OpenAI GPT-4o-mini</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-heading">Contacto</div>
+          <a href="javascript:void(0)" onclick="openContactModal('Footer Soporte')">Soporte Comercial</a>
+          <a href="javascript:void(0)" onclick="openContactModal('Footer Demo')">Solicitar Demo</a>
+          <span class="status-indicator-footer">● Servidores activos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 AuraBot Core. Todos los derechos reservados.</div>
+      <div class="footer-legal">Desarrollado para entornos empresariales de alta exigencia.</div>
+    </div>
+  </footer>
+
+  <!-- Lead Capture Modal -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeContactModal()">&times;</button>
+      <div class="modal-header">
+        <h3 class="modal-title">Solicitar Demostración o Asesoría</h3>
+        <p class="modal-subtitle">Completá tus datos y te responderemos por WhatsApp en menos de 15 minutos.</p>
+      </div>
+      <form class="modal-form" id="leadForm" onsubmit="handleLeadSubmit(event)">
+        <div class="form-field">
+          <label for="leadName">Nombre completo / Empresa:</label>
+          <input type="text" id="leadName" required placeholder="Ej: Lucas Barbero (Inmobiliaria)">
+        </div>
+        <div class="form-field">
+          <label for="leadPhone">Teléfono de WhatsApp (con código de país):</label>
+          <input type="tel" id="leadPhone" required placeholder="Ej: +54 9 11 1234-5678">
+        </div>
+        <div class="form-field">
+          <label for="leadIndustry">Rubro o tipo de negocio:</label>
+          <select id="leadIndustry" required>
+            <option value="inmobiliaria">Inmobiliaria / Bienes Raíces</option>
+            <option value="salud">Consultorio Médico / Odontológico</option>
+            <option value="estetica">Estética / Barbería / Spa</option>
+            <option value="ecommerce">E-Commerce / Tienda Online</option>
+            <option value="servicios">Servicios Profesionales / Otro</option>
+          </select>
+        </div>
+        <input type="hidden" id="leadSource" value="Landing Page">
+        <button type="submit" class="btn btn-primary btn-full">Enviar y Recibir Demo por WhatsApp</button>
+      </form>
+      <div class="modal-success" id="modalSuccess" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h4>¡Solicitud recibida correctamente!</h4>
+        <p>En breve nos pondremos en contacto contigo a través de WhatsApp para coordinar tu demo personalizada.</p>
+        <button class="btn btn-secondary" onclick="closeContactModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

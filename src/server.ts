@@ -1,5 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
+import path from "path";
 import { config } from "./config/env";
 import { pool } from "./database";
 import { verifyWebhook, receiveWebhook } from "./controllers/webhook";
@@ -10,6 +11,10 @@ const app: Application = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Servir archivos estáticos de la Landing Page (public/)
+const publicPath = path.join(process.cwd(), "public");
+app.use(express.static(publicPath));
 
 // Rutas de Webhook de WhatsApp / Meta
 app.get("/webhook", verifyWebhook);
@@ -35,8 +40,8 @@ app.get("/api/health", async (_req: Request, res: Response) => {
   });
 });
 
-// Ruta raíz informativa
-app.get("/", (_req: Request, res: Response) => {
+// Endpoint de información API en JSON
+app.get("/api", (_req: Request, res: Response) => {
   res.json({
     name: "Multi-Tenant WhatsApp AI Agent Core",
     version: "1.0.0",
